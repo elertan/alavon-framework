@@ -14,4 +14,16 @@ class HomeController extends Controller {
 		]);
 	}
 
+	public function imageCompressTest() {
+		$sourcePath = FileManager::getFilePath("content/images/test.jpg");
+		$destinationPath = FileManager::getFilePath("content/images/test_compressed.jpg");
+
+		$imageHelper = new ImageHelper;
+		$imageHelper->compress($sourcePath, $destinationPath);
+
+		View::render('home/imageCompressTest', [
+			'compressQuality' => ImageHelper::DEFAULT_IMAGE_COMPRESSION_QUALITY
+		]);
+	}
+
 }
