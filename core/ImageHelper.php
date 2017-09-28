@@ -5,17 +5,17 @@ class ImageHelper {
 	public function compress($source, $destination, $quality = self::DEFAULT_IMAGE_COMPRESSION_QUALITY) {
 		$info = getimagesize($source);
 
-        if ($info['mime'] == 'image/jpeg') 
-            $image = imagecreatefromjpeg($source);
+		if ($info['mime'] == 'image/jpeg') 
+		    $image = imagecreatefromjpeg($source);
 
-        elseif ($info['mime'] == 'image/gif') 
-            $image = imagecreatefromgif($source);
+		elseif ($info['mime'] == 'image/gif') 
+		    $image = imagecreatefromgif($source);
 
-        elseif ($info['mime'] == 'image/png') 
-            $image = imagecreatefrompng($source);
+		elseif ($info['mime'] == 'image/png') 
+		    $image = imagecreatefrompng($source);
 
-        imagejpeg($image, $destination, $quality);
+		imagejpeg($image, $destination, $quality);
 
-        return $destination;
+		return $destination;
 	}
 }
